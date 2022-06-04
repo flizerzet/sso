@@ -73,10 +73,8 @@ function getUsersDB(userId) {
 	if (database) {
 		get(child(dbRef, `users`)).then((snapshot) => {
 			if (snapshot.exists()) {
-				// console.log(snapshot.val());
 
 				let items = snapshot.val();
-                // console.log("🚀 ~ item", item)
 
 				for (let key in items) {
 					let item = document.createElement('div');
@@ -84,10 +82,6 @@ function getUsersDB(userId) {
 
 					database.appendChild(item)
 				}
-
-				// item.forEach(elem => {
-				// 	database.appendChild(elem)
-				// })
 			} else {
 				console.log("No data available");
 			}
