@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+	@@include('_head.html', {
+	title: 'Single sign-on (SSO)',
+	description: 'Login/register form',
+	url: 'https://flizerzet.github.io/sso',
+	image: 'https://flizerzet.github.io/sso/img/thumb.png',
+	name: 'SSO',
+	})
+
+</head>
+
+<body>
+	<div class="wrapper">
+		<main class="page">
+			<div class="info">
+				<a href="" class="info__logo"><img src="img/logo.png" alt="" /></a>
+				<span class="info__title">Welcome BAck!</span>
+				<div class="info__text">Enter your ID and Password to continue</div>
+			</div>
+			<div class="main">
+				<div class="_tabs">
+					<div class="tabs__contents">
+						<div class="_tabs-content form">
+							<div class="form__title"><span>Sign in</span><br>to Access the portal</div>
+							<form action="#" class="login" id="login">
+								<label>
+									<input required type="email" class="login__input _login-mail" autocomplete="username" placeholder="Enter email">
+									<img src="img/user-icon.svg" alt="">
+								</label>
+								<label>
+									<input required type="password" class="login__input _login-pass" autocomplete="current-password" placeholder="Enter password">
+									<img src="img/pass-icon.svg" alt="">
+								</label>
+								<button type="submit" class="login__btn">Login</button>
+							</form>
+						</div>
+						<div class="_tabs-content _active form">
+							<div class="form__title"><span>Sign up</span><br>to Access the portal</div>
+							<form action="#" class="login" id="register">
+								<label>
+									<input required type="email" class="login__input _register-mail" autocomplete="username" placeholder="Enter email">
+									<img src="img/user-icon.svg" alt="">
+								</label>
+								<label>
+									<input required type="password" class="login__input _register-pass" autocomplete="current-password" placeholder="Enter password">
+									<img src="img/pass-icon.svg" alt="">
+								</label>
+								<label>
+									<input required type="password" class="login__input _register-repeat-pass" autocomplete="current-password" placeholder="Repeat password">
+									<img src="img/pass-icon.svg" alt="">
+								</label>
+								<button type="submit" class="login__btn">Sign up</button>
+							</form>
+						</div>
+					</div>
+					<div class="tabs__links">
+						<div class="_tabs-link">Sign in</div>
+						<div class="_tabs-link _active">Sign up</div>
+					</div>
+				</div>
+			</div>
+		</main>
+	</div>
+</body>
+
+</html>

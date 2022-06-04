@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="shortcut icon" href="/img/favicon.ico" type="image/x-icon">
+	<link rel="stylesheet" href="css/style.min.css">
+	<script src="js/vendors.js" defer></script>
+	<script src="js/app.min.js" defer></script>
+
+	<!-- Primary Meta Tags -->
+	<title>Single sign-on (SSO)</title>
+	<meta name="title" content="Single sign-on (SSO)">
+	<meta name="description" content="Login/register form">
+
+	<!-- Open Graph / Facebook -->
+	<meta property="og:type" content="website">
+	<meta property="og:url" content="https://flizerzet.github.io/sso">
+	<meta property="og:title" content="Single sign-on (SSO)">
+	<meta property="og:description" content="Login/register form">
+	<meta property="og:image" content="https://flizerzet.github.io/sso/img/thumb.png">
+	<meta property="og:type" content="website">
+	<meta property="og:site_name" content="SSO">
+
+	<!-- Twitter -->
+	<meta property="twitter:card" content="summary_large_image">
+	<meta property="twitter:url" content="https://flizerzet.github.io/sso">
+	<meta property="twitter:title" content="Single sign-on (SSO)">
+	<meta property="twitter:description" content="Login/register form">
+	<meta property="twitter:image" content="https://flizerzet.github.io/sso/img/thumb.png">
+
+</head>
+
+<body>
+	<div class="wrapper">
+		<main class="page">
+			<div class="info">
+				<a href="" class="info__logo"><img src="img/logo.png" alt="" /></a>
+				<span class="info__title">Welcome BAck!</span>
+				<div class="info__text">Enter your ID and Password to continue</div>
+			</div>
+			<div class="main">
+				<div class="_tabs">
+					<div class="tabs__contents">
+						<div class="_tabs-content form">
+							<div class="form__title"><span>Sign in</span><br>to Access the portal</div>
+							<form action="#" class="login" id="login">
+								<label>
+									<input required type="email" class="login__input _login-mail" autocomplete="username" placeholder="Enter email">
+									<img src="img/user-icon.svg" alt="">
+								</label>
+								<label>
+									<input required type="password" class="login__input _login-pass" autocomplete="current-password" placeholder="Enter password">
+									<img src="img/pass-icon.svg" alt="">
+								</label>
+								<button type="submit" class="login__btn">Login</button>
+							</form>
+						</div>
+						<div class="_tabs-content _active form">
+							<div class="form__title"><span>Sign up</span><br>to Access the portal</div>
+							<form action="#" class="login" id="register">
+								<label>
+									<input required type="email" class="login__input _register-mail" autocomplete="username" placeholder="Enter email">
+									<img src="img/user-icon.svg" alt="">
+								</label>
+								<label>
+									<input required type="password" class="login__input _register-pass" autocomplete="current-password" placeholder="Enter password">
+									<img src="img/pass-icon.svg" alt="">
+								</label>
+								<label>
+									<input required type="password" class="login__input _register-repeat-pass" autocomplete="current-password" placeholder="Repeat password">
+									<img src="img/pass-icon.svg" alt="">
+								</label>
+								<button type="submit" class="login__btn">Sign up</button>
+							</form>
+						</div>
+					</div>
+					<div class="tabs__links">
+						<div class="_tabs-link">Sign in</div>
+						<div class="_tabs-link _active">Sign up</div>
+					</div>
+				</div>
+			</div>
+		</main>
+	</div>
+</body>
+
+</html>

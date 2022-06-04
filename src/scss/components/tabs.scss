@@ -1,0 +1,29 @@
+._tabs {
+}
+._tabs-link {
+	cursor: pointer;
+	margin-top: 20px;
+	text-align: center;
+	font-weight: 400;
+	font-size: 14px;
+	text-decoration-line: underline;
+	color: #00344D;
+	@media (any-hover: hover) {
+		&:hover{
+			text-decoration: none;
+		}
+	}
+	&._active{
+		opacity: 0;
+		visibility: hidden;
+		position: absolute;
+	}
+}
+._tabs-content {
+	display: none;
+	justify-content: center;
+	flex-direction: column;
+	&._active {
+		display: flex;
+	}
+}

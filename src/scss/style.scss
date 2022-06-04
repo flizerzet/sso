@@ -1,0 +1,83 @@
+@use "sass:math";
+
+//---МИКСИНЫ---===============================
+@import "components/mixins";
+
+//---ШРИФТЫ---===============================
+@import url("https://fonts.googleapis.com/css?family=Quicksand:regular,500,700&display=swap");
+// @import 'components/fonts';
+
+//---Иконочный шрифт
+// @import 'components/icons';
+
+//---ПЕРЕМЕННЫЕ---===============================
+
+//---Шрифт по умолчанию
+$fontFamily: "Quicksand";
+$fontWeight: 400;
+$fontSize: rem(16);
+//---Цвет текста по умолчанию
+$mainColor: #000;
+
+//---Основные цвета
+
+//---РАЗМЕРЫ---===============================
+// Минимальная ширина страницы
+$minWidth: 320;
+// Ширина полотна (макета)
+$maxWidth: 1440;
+// Ширина ограничивающего контейнера (0 = нет ограничения)
+$maxWidthContainer: 1280;
+// Отступ безопасности
+$containerPadding: 30;
+
+$containerWidth: $maxWidthContainer + $containerPadding;
+
+//---Обнуление
+@import "components/nullstyle";
+
+//---Страница
+body {
+	font-family: $fontFamily, sans-serif;
+	color: $mainColor;
+	font-weight: $fontWeight;
+	background-color: #fafafa;
+	// Блокировка скролла
+	&._locked {
+		overflow: hidden;
+		touch-action: none;
+	}
+}
+
+.wrapper {
+	width: 100%;
+	min-height: 100%;
+	overflow: hidden;
+	display: flex;
+	flex-direction: column;
+	// Для слайдеров
+	> * {
+		min-width: 0;
+	}
+}
+
+[class*="__container"] {
+	@if ($maxWidthContainer > 0) {
+		max-width: $containerWidth + px;
+	} @else {
+		width: 100%;
+	}
+	margin: 0 auto;
+	padding: 0 math.div($containerPadding, 2) + px;
+}
+
+.page {
+	flex: 1 1 auto;
+	display: flex;
+	@media (max-width: em(768)){
+		flex-direction: column;
+	}
+}
+
+@import "base";
+@import "components/home";
