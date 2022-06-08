@@ -5,6 +5,13 @@ import { initializeApp } from "firebase/app";
 import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword } from "firebase/auth";
 import { getDatabase, ref, set, get, child } from "firebase/database";
 
+function showPreloader() {
+	document.querySelector('.preloader').style.display = 'block';
+	document.querySelector('.preloader').style.opacity = '1';
+}
+function hidePreloader() {
+	document.querySelector('.preloader').style.display = 'none';
+}
 
 const firebaseConfig = {
 	apiKey: "AIzaSyDpBNIOo6XaeoDbf8SjoOVdG3C42HErWGY",
@@ -32,13 +39,14 @@ function createUser(mail, pass) {
 			uid = user.uid;
 
 			writeUserData(user.uid, user.email)
+			hidePreloader()
 			alert('Вы успешно зарегестрировались')
 		})
 		.catch((error) => {
 			const errorCode = error.code;
 			const errorMessage = error.message;
-
-			alert('Ошибка ', errorMessage)
+			alert(`Ошибка ${errorMessage}`)
+			hidePreloader()
 		});
 }
 
@@ -48,14 +56,13 @@ function loginUser(mail, pass) {
 			const user = userCredential.user;
 			console.log("🚀 ~ user", user)
 			alert('Вы успешно залогинились')
-
+			hidePreloader()
 			location.href = "./database.html"
 		})
 		.catch((error) => {
-			const errorCode = error.code;
 			const errorMessage = error.message;
-
-			alert('Пользователь или пароль неверен. Ошибка ', errorMessage)
+			hidePreloader()
+			alert(`Пользователь или пароль неверен. Ошибка ${errorMessage}`)
 		});
 }
 
@@ -73,8 +80,10 @@ function getUsersDB(userId) {
 	if (database) {
 		get(child(dbRef, `users`)).then((snapshot) => {
 			if (snapshot.exists()) {
+				// console.log(snapshot.val());
 
 				let items = snapshot.val();
+                // console.log("🚀 ~ item", item)
 
 				for (let key in items) {
 					let item = document.createElement('div');
@@ -82,6 +91,10 @@ function getUsersDB(userId) {
 
 					database.appendChild(item)
 				}
+
+				// item.forEach(elem => {
+				// 	database.appendChild(elem)
+				// })
 			} else {
 				console.log("No data available");
 			}
@@ -104,11 +117,12 @@ if (regForm) {
 		const regPass = regForm.querySelector('._register-pass').value;
 		const regRepeatPass = regForm.querySelector('._register-repeat-pass').value;
 		e.preventDefault()
-
+		showPreloader();
 		if (regPass === regRepeatPass) {
 			createUser(regMail, regPass)
 		} else {
 			alert('Пароли не совпадают!')
+			hidePreloader()
 		}
 
 	})
@@ -125,7 +139,7 @@ if (logForm) {
 		const logMail = logForm.querySelector('._login-mail').value;
 		const logPass = logForm.querySelector('._login-pass').value;
 		e.preventDefault()
-
+		showPreloader()
 		loginUser(logMail, logPass)
 	})
 }
